@@ -2,28 +2,101 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --canvas:        #fbfaf9;
+  --stone:         #f2f0ed;
+  --parchment:     #f8f7f4;
+  --graphite:      #474645;
+  --charcoal:      #343433;
+  --midnight:      #121212;
+  --ash:           #848281;
+  --fog:           #c6c6c6;
+  --ember:         #ff3e00;
+  --meadow:        #00ca48;
+  --sky:           #0090ff;
+  --sunburst:      #ffbb26;
+}
+
 @layer base {
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; }
   body {
-    @apply bg-slate-50 text-slate-800 antialiased;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans TC', sans-serif;
+    background-color: var(--canvas);
+    color: var(--graphite);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .font-display {
+    font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+    font-weight: 500;
   }
 }
 
 @layer components {
+  /* Family design system */
+  .family-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 32px;
+    box-shadow: color(display-p3 0.949 0.941 0.929) 0px 0px 0px 1px inset;
+  }
+  .family-card-warm {
+    background: var(--parchment);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .btn-dark-pill {
+    background: var(--midnight);
+    color: #ffffff;
+    border-radius: 32px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-dark-pill:hover { background: var(--charcoal); }
+  .btn-light-pill {
+    background: #f6f4ef;
+    color: var(--midnight);
+    border-radius: 32px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-light-pill:hover { background: var(--stone); }
+  .ember-link {
+    color: var(--ember);
+    font-weight: 500;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px 0;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  .ember-link:hover { text-decoration: underline; }
+
   .sidebar-link {
-    @apply flex items-center gap-3 px-4 py-2.5 rounded-lg text-slate-300 hover:bg-slate-700 hover:text-white transition-all duration-150 text-sm font-medium cursor-pointer;
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-lg text-red-200 hover:bg-red-800 hover:text-white transition-all duration-150 text-sm font-medium cursor-pointer;
   }
   .sidebar-link.active {
-    @apply bg-blue-600 text-white;
+    @apply bg-red-600 text-white;
   }
   .sidebar-sublink {
-    @apply flex items-center gap-2 pl-10 pr-4 py-2 rounded-lg text-slate-400 hover:bg-slate-700 hover:text-white transition-all duration-150 text-sm cursor-pointer;
+    @apply flex items-center gap-2 pl-10 pr-4 py-2 rounded-lg text-red-300 hover:bg-red-800 hover:text-white transition-all duration-150 text-sm cursor-pointer;
   }
   .sidebar-sublink.active {
-    @apply bg-blue-600/20 text-blue-400 font-medium;
+    @apply bg-red-600/30 text-red-100 font-medium;
   }
   .card {
     @apply bg-white rounded-xl shadow-sm border border-slate-100 p-4;

@@ -38,16 +38,16 @@ export const Sidebar: React.FC = () => {
 
   return (
     <div
-      className={`flex flex-col bg-slate-800 text-white transition-all duration-200 flex-shrink-0 ${
+      className={`flex flex-col bg-red-900 text-white transition-all duration-200 flex-shrink-0 ${
         collapsed ? 'w-14' : 'w-56'
       }`}
       style={{ minHeight: '100vh' }}
     >
       {/* Logo */}
-      <div className="flex items-center justify-between px-4 py-4 border-b border-slate-700">
+      <div className="flex items-center justify-between px-4 py-4 border-b border-red-800">
         {!collapsed && (
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center flex-shrink-0">
+            <div className="w-7 h-7 rounded-lg bg-red-600 flex items-center justify-center flex-shrink-0">
               <LayoutDashboard size={14} className="text-white" />
             </div>
             <div>
@@ -58,7 +58,7 @@ export const Sidebar: React.FC = () => {
         )}
         <button
           onClick={() => setCollapsed(!collapsed)}
-          className="p-1.5 rounded-lg hover:bg-slate-700 text-slate-400 hover:text-white transition-colors"
+          className="p-1.5 rounded-lg hover:bg-red-800 text-red-300 hover:text-white transition-colors"
         >
           {collapsed ? <Menu size={16} /> : <X size={16} />}
         </button>
@@ -121,7 +121,7 @@ export const Sidebar: React.FC = () => {
                   key={item.path}
                   onClick={() => navigate(item.path)}
                   className={`flex items-center justify-center p-2 rounded-lg cursor-pointer transition-colors relative ${
-                    isActive(item.path) ? 'bg-blue-600 text-white' : 'text-slate-400 hover:bg-slate-700 hover:text-white'
+                    isActive(item.path) ? 'bg-red-600 text-white' : 'text-red-300 hover:bg-red-800 hover:text-white'
                   }`}
                   title={`${item.label} (${item.labelEn})`}
                 >
@@ -138,8 +138,8 @@ export const Sidebar: React.FC = () => {
 
       {/* Footer */}
       {!collapsed && (
-        <div className="px-4 py-3 border-t border-slate-700">
-          <p className="text-xs text-slate-500">v1.0.0</p>
+        <div className="px-4 py-3 border-t border-red-800">
+          <p className="text-xs text-red-400">v1.0.0</p>
         </div>
       )}
     </div>
